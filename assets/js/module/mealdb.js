@@ -1,28 +1,6 @@
-export default async function getAllProducts() {
+export default async function searchMealByName() {
 
-    return fetch('https://dummyjson.com/products')
-
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-
-        .then((data) => {
-            console.log('All Products', data);
-            return data;
-        })
-
-        .catch((error) => {
-            console.log(error);
-            return error
-        })  
-}
-
-export async function getSingleProduct() {
-
-    return fetch('https://dummyjson.com/products/1')
+    return fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata')
 
         .then((response) => {
             if (!response.ok) {
@@ -32,7 +10,7 @@ export async function getSingleProduct() {
         })
 
         .then((data) => {
-            console.log('Single Product', data);
+            console.log('Search Meal By Name', data);
             return data;
         })
 
@@ -42,9 +20,9 @@ export async function getSingleProduct() {
         })  
 }
 
-export async function searchProducts() {
+export async function sortAllMeals() {
 
-    return fetch('https://dummyjson.com/products/search?q=phone')
+    return fetch('https://www.themealdb.com/api/json/v1/1/search.php?f=a')
 
         .then((response) => {
             if (!response.ok) {
@@ -54,7 +32,7 @@ export async function searchProducts() {
         })
 
         .then((data) => {
-            console.log('search', data);
+            console.log('Sort All Meals', data);
             return data;
         })
 
@@ -64,9 +42,9 @@ export async function searchProducts() {
         })  
 }
 
-export async function skipProducts() {
+export async function MealDetailsByID() {
 
-    return fetch('https://dummyjson.com/products?limit=10&skip=10&select=title,price')
+    return fetch('https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772')
 
         .then((response) => {
             if (!response.ok) {
@@ -76,7 +54,7 @@ export async function skipProducts() {
         })
 
         .then((data) => {
-            console.log('Limit, and skip', data);
+            console.log('Lookup Full Meal Details', data);
             return data;
         })
 
@@ -86,9 +64,9 @@ export async function skipProducts() {
         })  
 }
 
-export async function sortProducts() {
+export async function singleRandomMeal() {
 
-    return fetch('https://dummyjson.com/products?sortBy=title&order=asc')
+    return fetch('https://www.themealdb.com/api/json/v1/1/random.php')
 
         .then((response) => {
             if (!response.ok) {
@@ -98,7 +76,7 @@ export async function sortProducts() {
         })
 
         .then((data) => {
-            console.log('Sort Products', data);
+            console.log('Lookup Single Random Meal', data);
             return data;
         })
 
@@ -108,9 +86,9 @@ export async function sortProducts() {
         })  
 }
 
-export async function getAllCategories() {
+export async function allMealCategories() {
 
-    return fetch('https://dummyjson.com/products/categories')
+    return fetch('https://www.themealdb.com/api/json/v1/1/categories.php')
 
         .then((response) => {
             if (!response.ok) {
@@ -120,7 +98,7 @@ export async function getAllCategories() {
         })
 
         .then((data) => {
-            console.log('All Categories', data);
+            console.log('List All Meal Categories', data);
             return data;
         })
 
@@ -130,9 +108,9 @@ export async function getAllCategories() {
         })  
 }
 
-export async function getCategoryList() {
+export async function filterByMainIngredient() {
 
-    return fetch('https://dummyjson.com/products/category-list')
+    return fetch('https://www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast')
 
         .then((response) => {
             if (!response.ok) {
@@ -142,7 +120,7 @@ export async function getCategoryList() {
         })
 
         .then((data) => {
-            console.log('Category List', data);
+            console.log('Filter By Main Ingredient', data);
             return data;
         })
 
@@ -152,9 +130,9 @@ export async function getCategoryList() {
         })  
 }
 
-export async function getProductsByCategory() {
+export async function filterByCategory() {
 
-    return fetch('https://dummyjson.com/products/category/smartphones')
+    return fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood')
 
         .then((response) => {
             if (!response.ok) {
@@ -164,7 +142,7 @@ export async function getProductsByCategory() {
         })
 
         .then((data) => {
-            console.log('Products By Category', data);
+            console.log('Filter By Category', data);
             return data;
         })
 
@@ -173,4 +151,27 @@ export async function getProductsByCategory() {
             return error
         })  
 }
+
+export async function filterByArea() {
+
+    return fetch('https://www.themealdb.com/api/json/v1/1/filter.php?a=Canadian')
+
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+
+        .then((data) => {
+            console.log('Filter By Area', data);
+            return data;
+        })
+
+        .catch((error) => {
+            console.log(error);
+            return error
+        })  
+}
+
 
